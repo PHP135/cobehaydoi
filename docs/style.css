@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playwrite GB S';
+    font-style: none;
+    font-weight: 400;
+    color: #ff9494;
+}
+body {
+    background-color: #fff5e4;
+}
+.homepage-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.homepage-layout b {
+    font-size: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.answer-button {
+    border: none;
+    border-radius: 10px;
+    background-color: #ffe3e1;
+    width: 200px;
+    height: 50px;
+    font-size: 14px;
+    transition: background-color 400ms;
+}
+.yes {
+    color: #ff7777;
+    width: 100px;
+    margin-right: 40px;
+}
+.answer-button:hover {
+    background-color: rgb(250, 135, 135);;
+    color: #ffe3e1;
+}
