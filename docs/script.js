@@ -1,2 +1,2 @@
-var noButton = document.querySelector('button.no');
-noButton.addEventListener();
+var noButton = document.getElementById("no");
+noButton.addEventListener("click", function() {noButton.style.background = "blue";});
