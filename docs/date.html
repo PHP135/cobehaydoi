@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Date</title>
+        <meta name="author" content="Pito">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+J+Guides:ital@0;1&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <div class="structure">
+            <b style="margin-bottom: 20px;">Are you free on ...</b>
+            <p style="font-size: 22px; margin-bottom: 20px;">Which day: (select a date)</p>
+            <div>
+                <form id="date-form" action="https://formsubmit.co/ajax/9e678ff496f409937bdc83a9789cb413" method="POST">
+                    <input type="date" id="date-input" name="date" required>
+                    <input type="hidden" name="_redirect" value="http://127.0.0.1:5500/docs/date.html">
+                    <input type="hidden" name="_template" value="table">
+                    <button type="submit" id="date-button">Submit</button>
+                </form>
+                <p style="display: none; margin: 10px 0 0 10px;" id="date-success">Date submitted successfully!!</p>
+            </div>
+        </div>
+        <script>
+            document.getElementById('date-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const form = event.target;
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                    });
+
+                    if (response.ok) {
+                        document.getElementById('date-success').style.display = 'block';
+                        window.location.href = "food.html";
+                    } else {
+                        alert('Failed to submit date. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        </script>
+    </body>
+</html>
