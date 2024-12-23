@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Date</title>
+        <meta name="author" content="Pito">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+J+Guides:ital@0;1&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <div class="structure" style="padding-bottom: 30px;">
+            <b>What are we doing after??</b>
+            <div style="margin-top: 20px;">
+                <form id="checkbox-form" action="https://formsubmit.co/ajax/a77e55e8cfb43c74890907a0fb981608" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_redirect" value="http://127.0.0.1:5500/docs/test.html">
+                    <input type="hidden" name="_template" value="table">
+        
+                    <div class="activities-checkbox-group">
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../ramen.webp">
+                            </div>
+                            <label>
+                                <input type="checkbox" name="preferences[]" value="museum"> museum
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../ramen.webp">
+                            </div>
+                            <label>
+                                <input type="checkbox" name="preferences[]" value="aquarium"> aquarium
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../ramen.webp">
+                            </div>
+                            <label>
+                                <input type="checkbox" name="preferences[]" value="cinema"> cinema
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../ramen.webp">
+                            </div>
+                            <label>
+                                <input type="checkbox" name="preferences[]" value="arcade"> arcade
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../ramen.webp">
+                            </div>
+                            <label>
+                                <input type="checkbox" name="preferences[]" value="ceramics"> ceramics
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../ramen.webp">
+                            </div>
+                            <label>
+                                <input type="checkbox" name="preferences[]" value="park"> park
+                            </label>
+                        </div>
+                    </div>
+        
+                    <button id="dessert-button">Last page</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            document.getElementById('checkbox-form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const form = event.target;
+                const formData = new FormData(form);
+
+                // Collect all selected checkboxes into a single field
+                const checkboxes = form.querySelectorAll('input[name="preferences[]"]:checked');
+                let selectedValues = [];
+                checkboxes.forEach(checkbox => selectedValues.push(checkbox.value));
+
+                if (selectedValues.length > 0) {
+                    formData.set('preferences', selectedValues.join(', '));
+                } else {
+                    formData.set('preferences', 'None selected');
+                }
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                    });
+
+                    if (response.ok) {
+                        alert("Success!")
+                        window.location.href="activities.html";
+                    } else {
+                        alert('Failed to submit your preferences. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        </script>
+    </body>
+</html>

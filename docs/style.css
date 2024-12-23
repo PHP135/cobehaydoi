@@ -71,3 +71,85 @@ body {
     background-color: rgb(250, 135, 135);;
     color: #ffe3e1;
 }
+
+#submitting{
+    display: block;
+    margin: 10px 0 0 20px;
+}
+
+.submitting span {
+    animation: dots 1.5s infinite;
+}
+
+.submitting span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.submitting span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.submitting span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes dots {
+    0%, 20% {
+        opacity: 0.2;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+    100% {
+        opacity: 0.2;
+        transform: translateY(0);
+    }
+}
+
+
+/*food.html from here*/
+.checkbox-group, .dessert-checkbox-group, .activities-checkbox-group {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 40px;
+    row-gap: 30px;
+    margin-bottom: 30px;
+}
+.checkbox-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.image img{
+    width: 200px;
+    border-radius: 50%;
+}
+.image {
+    padding: 10px 10px 3px 10px; /* Spacing between the image and the border */
+    border: 5px solid #f39999; /* Thick border outside the image */
+    border-radius: 50%;
+}
+.checkbox-item label {
+    display: block;
+}
+#food-button, #dessert-button {
+    display: block;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffe3e1;
+    padding: 5px 50px;
+    font-size: 18px;
+    transition: background-color 400ms;
+    margin: 0 auto;
+}
+#food-button:hover, #dessert-button:hover{
+    background-color: rgb(250, 135, 135);;
+    color: #ffe3e1;
+}
+
+/*dessert.html from here*/
+.dessert-checkbox-group, .activities-checkbox-group {
+    grid-template-columns: auto auto auto;
+}

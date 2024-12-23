@@ -12,52 +12,77 @@
         <script defer src="script.js"></script>
     </head>
     <body>
-        <div class="structure">
-            <b style="margin-bottom: 20px;">What food would you like to eat??</b>
-            <div>
-                <form id="checkbox-form" action="https://formsubmit.co/ajax/anh057853@stu.vinschool.edu.vn" method="POST">
+        <div class="structure" style="padding-bottom: 30px;">
+            <b>What food would you like to eat??</b>
+            <div style="margin-top: 20px;">
+                <form id="checkbox-form" action="https://formsubmit.co/ajax/a77e55e8cfb43c74890907a0fb981608 method="POST">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_redirect" value="http://127.0.0.1:5500/docs/test.html">
                     <input type="hidden" name="_template" value="table">
         
                     <div class="checkbox-group">
-                        <div class="food-item">
-                            <div>
-                                <img>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../assets/ramen.webp">
                             </div>
                             <label>
-                                <input type="checkbox" name="preferences[]" value="Newsletters"> Subscribe to Newsletters
+                                <input type="checkbox" name="preferences[]" value="japanese"> japanese
                             </label>
                         </div>
-                        <div class="food-item">
-                            <div>
-                                <img>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../assets/fastfood.jpg">
                             </div>
                             <label>
-                                <input type="checkbox" name="preferences[]" value="Promotions"> Receive Promotions
+                                <input type="checkbox" name="preferences[]" value="fast food"> fast food 🦅
                             </label>
                         </div>
-                        <div class="food-item">
-                            <div></div>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../ramen.webp">
+                            </div>
                             <label>
-                                <input type="checkbox" name="preferences[]" value="Updates"> Get Product Updates
+                                <input type="checkbox" name="preferences[]" value="pasta"> pasta
                             </label>
                         </div>
-                        <div class="food-item">
-                            <div></div>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../ramen.webp">
+                            </div>
                             <label>
-                                <input type="checkbox" name="preferences[]" value="Surveys"> Participate in Surveys
+                                <input type="checkbox" name="preferences[]" value="salad"> salad
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../ramen.webp">
+                            </div>
+                            <label>
+                                <input type="checkbox" name="preferences[]" value="pizza"> pizza
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <div class="image">
+                                <img src="../ramen.webp">
+                            </div>
+                            <label>
+                                <input type="checkbox" name="preferences[]" value="hehe"> hehe
                             </label>
                         </div>
                     </div>
         
-                    <button type="submit">Submit</button>
+                    <button id="food-button">Continue!!</button>
+                    <div id="submitting" class="submitting" style="display: none;">
+                        Waiting<span>.</span><span>.</span><span>.</span>
+    
+                    </div>
                 </form>
             </div>
         </div>
         <script>
             document.getElementById('checkbox-form').addEventListener('submit', async function (event) {
                 event.preventDefault();
+                document.getElementById('submitting').style.display = 'block';
 
                 const form = event.target;
                 const formData = new FormData(form);
@@ -80,7 +105,9 @@
                     });
 
                     if (response.ok) {
-                        document.getElementById('successMessage').style.display = 'block';
+                        alert("Success!")
+                        document.getElementById('submitting').style.display = 'none';
+                        window.location.href="activities.html";
                     } else {
                         alert('Failed to submit your preferences. Please try again.');
                     }

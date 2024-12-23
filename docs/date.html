@@ -16,18 +16,30 @@
             <b style="margin-bottom: 20px;">Are you free on ...</b>
             <p style="font-size: 22px; margin-bottom: 20px;">Which day: (select a date)</p>
             <div>
-                <form id="date-form" action="https://formsubmit.co/ajax/9e678ff496f409937bdc83a9789cb413" method="POST">
+                <form id="date-form" action="https://formsubmit.co/ajax/a77e55e8cfb43c74890907a0fb981608" method="POST">
                     <input type="date" id="date-input" name="date" required>
                     <input type="hidden" name="_redirect" value="http://127.0.0.1:5500/docs/date.html">
                     <input type="hidden" name="_template" value="table">
                     <button type="submit" id="date-button">Submit</button>
                 </form>
+                
+                <div id="submitting" class="submitting" style="display: none;">
+                    Submitting<span>.</span><span>.</span><span>.</span>
+
+                </div>
+
                 <p style="display: none; margin: 10px 0 0 10px;" id="date-success">Date submitted successfully!!</p>
             </div>
+            <img id="mybae" style="margin-top: 40px;" width="400px" src="../assets/chanh.jpg" alt="mybae">
         </div>
         <script>
             document.getElementById('date-form').addEventListener('submit', async function (event) {
                 event.preventDefault();
+
+                // document.getElementById('date-button').style.display = 'none';
+
+                document.getElementById('submitting').style.display = 'block';
+                document.getElementById('mybae').style.marginTop = '0px';
 
                 const form = event.target;
                 const formData = new FormData(form);
@@ -39,6 +51,7 @@
                     });
 
                     if (response.ok) {
+                        document.getElementById('submitting').style.display = 'none';
                         document.getElementById('date-success').style.display = 'block';
                         window.location.href = "food.html";
                     } else {
