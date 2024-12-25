@@ -1,5 +1,5 @@
 ### COBEHAYDOI
-First successful fun little project made possible by @PHP315 and @JackyDooky
+First successful fun little project made possible by [@PHP135](https://github.com/PHP135) [@JackyDooky](https://github.com/JackyDooky) 
 
 LETS GOOOOOOOOO
 ©️2tlemo
